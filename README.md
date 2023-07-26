@@ -1,3 +1,6 @@
+# Practice
+- scripts that describe conditional structures
+
 # Home work 3
 - a script that counts the number of seconds per hour
 
