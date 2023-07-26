@@ -1,4 +1,7 @@
-# Practice
+# Home work 5
+- collecting information about the user
+
+# Practice (Home work 4)
 - scripts that describe conditional structures
 
 # Home work 3
