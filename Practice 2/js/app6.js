@@ -5,6 +5,6 @@ let sum = 0;
 for (let start = initial; start <= end; start++) {
   sum += start;
 }
-let arithAverage = sum / 500;
+let arithAverage = sum / end;
 
 console.log(`The poduct of all integers from ${ initial } to ${ end } = ${ arithAverage }`);
