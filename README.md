@@ -1,3 +1,12 @@
+# Home work 9
+- analysis of an array of objects
+
+# Home work 8
+- practice working with arrays
+
+# Home work 7
+- work with loops
+
 # Practice 2
 - practice working with cycles
 
