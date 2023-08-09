@@ -1,3 +1,6 @@
+# Home work 10
+- task to search products from the list
+
 # Home work 9
 - analysis of an array of objects
 
