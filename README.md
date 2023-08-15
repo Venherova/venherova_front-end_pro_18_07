@@ -1,3 +1,12 @@
+# Home work 13
+- task for using recursion
+
+# Home work 12
+- task for using the function removeElementFromArray
+
+# Home work 11
+- practice for functions
+
 # Home work 10
 - task to search products from the list
 
