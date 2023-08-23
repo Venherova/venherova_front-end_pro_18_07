@@ -1,3 +1,15 @@
+# Home work 17
+- introduction in DOM
+
+# Home work 16
+- сall caching
+
+# Home work 15
+- function generateKey
+
+# Home work 14
+- this chain
+
 # Home work 13
 - task for using recursion
 

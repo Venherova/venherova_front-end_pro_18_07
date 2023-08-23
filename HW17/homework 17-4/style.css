@@ -1,0 +1,17 @@
+.wrapper {
+  display: block;
+  margin: 15px 15px;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.image-wrapper {
+  width: 300px;
+  height: auto;
+}
+
+.image-wrapper img {
+  width: 100%;
+}

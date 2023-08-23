@@ -1,0 +1,28 @@
+.wrapper {
+  display: block;
+  margin: 15px 15px;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.wrapper-buttons button:not(:last-child) {
+  margin-right: 15px;
+}
+
+table {
+  border: 1px solid black;
+  display: none;
+}
+
+table tr td {
+  padding: 5px;
+  text-align: center;
+}
+
