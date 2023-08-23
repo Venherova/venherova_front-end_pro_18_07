@@ -1,3 +1,6 @@
+# Home work 18
+- function generateList
+
 # Home work 17
 - introduction in DOM
 
