@@ -33,10 +33,13 @@ function showProducts(products, category) {
 function showProductInfo(product) {
   const parentElement = getAndClearElements('right');
 
-  let descriptionElement = document.createElement('div');
-  descriptionElement.innerHTML = product.description;
+  let itemsElements = ['name', 'description', 'price'];
 
-  parentElement.appendChild(descriptionElement);
+  for (const item of itemsElements) {
+    let element = document.createElement('span');
+    element.textContent = `Product ${item}: ${product[item]}`;
+    parentElement.appendChild(element);
+  }
 }
 
 function createOrderButton(product) {
@@ -48,7 +51,8 @@ function createOrderButton(product) {
   parentElement.appendChild(button);
 
   document.getElementById('buy-btn').addEventListener('click', () => {
-    alert(`Product ${product.name} was bought`);
+    let orderElement = document.getElementById('order');
+    orderElement.innerHTML = (`Product ${product.name} was bought!`);
 
     const elements = ['center', 'right'];
     for (const element of elements) {
@@ -66,6 +70,7 @@ document.getElementById('left').addEventListener('click', event => {
     const categoryKey = event.target.getAttribute('data-category');
     const categoryProducts = categories[categoryKey].products;
     showProducts(categoryProducts, categoryKey);
+    getAndClearElements('order');
   }
 });
 
@@ -82,5 +87,3 @@ document.getElementById('center').addEventListener('click', event => {
     createOrderButton(product);
   }
 });
-
-

@@ -8,3 +8,19 @@
   border: 1px solid black;
   min-height: 100px;
 }
+
+#right {
+  display: flex;
+  flex-direction: column;
+}
+
+#buy-btn {
+  width: fit-content;
+  margin-top: 10px;
+}
+
+#order {
+  text-align: center;
+  padding-top: 50px;
+  font-size: 18px;
+}
