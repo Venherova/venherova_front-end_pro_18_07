@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form name="mainForm">
+    <p><input type="text" name="firstName" placeholder="First name" oninput="checkText(this.value, 'name')"/>
+      <p id="errorName"></p>
+    </p>
+    
+    <p><input type="text"  name="lastName" placeholder="Last name" oninput="checkText(this.value, 'lastname')"/>
+      <p id="errorLastname"></p>
+    </p>
+   
+    
+    <p><input type="date" name="dateOfBirth"/></p>
+
+    <p><input type="radio" name="gender" value="m" /> Male </p>
+    <p><input type="radio" name="gender" value="f" /> Female </p>
+
+    <p><input type="checkbox"  name="languages" value="en" /> English </p> 
+    <p><input type="checkbox"  name="languages" value="de" /> Deutsch </p>
+    <p><input type="checkbox"  name="languages" value="ru" /> Russian </p>
+    <p><input type="checkbox"  name="languages" value="ua" /> Ukrainian </p>
+    
+    <div>
+      <select  name="city">
+        <option value="">--select city--</option>
+        <option value="od">Odessa</option> 
+        <option value="ny">New York</option>
+        <option value="to">Toronto</option>
+        <option value="dn">Dnipro</option>
+      </select> 
+    </div>
+    
+    <textarea  name="address"></textarea>
+    
+    <div>
+      <input type="button" id="btn" value="Save" />
+    </div>
+    
+    <p id="errorForm"></p>
+  </form>
+ <div id="tableContainer"></div>
+
+ <script src="app.js"></script>
+</body>
+</html>
