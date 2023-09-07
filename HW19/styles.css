@@ -24,3 +24,27 @@
   padding-top: 50px;
   font-size: 18px;
 }
+
+#form-container > form {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+#form-container > button {
+  height: 50px;
+}
+
+#error-form {
+  color: red;
+  font-size: 16px;
+}
+
+.delivery-information {
+  display: flex;
+  justify-content: center;
+}
+
+.delivery-form {
+  margin-right: 10px;
+}

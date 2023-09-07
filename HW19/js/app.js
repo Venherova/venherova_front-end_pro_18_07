@@ -52,25 +52,29 @@ function createOrderButton(product) {
 
   document.getElementById('buy-btn').addEventListener('click', () => {
     let orderElement = document.getElementById('order');
-    orderElement.innerHTML = (`Product ${product.name} was bought!`);
+    orderElement.innerHTML = (`Product ${product.name} was selected!`);
 
     const elements = ['center', 'right'];
     for (const element of elements) {
       getAndClearElements(element);
     }
+
+    createDeliveryForm(product);
   });
 }
 
 showCategories();
-
-
 
 document.getElementById('left').addEventListener('click', event => {
   if (event.target.nodeName === 'DIV') {
     const categoryKey = event.target.getAttribute('data-category');
     const categoryProducts = categories[categoryKey].products;
     showProducts(categoryProducts, categoryKey);
-    getAndClearElements('order');
+
+    const elements = ['order', 'form-container', 'table-container', 'error-form'];
+    for (const element of elements) {
+      getAndClearElements(element);
+    }
   }
 });
 
@@ -82,7 +86,6 @@ document.getElementById('center').addEventListener('click', event => {
 
     const product = categories[categoryKey].products.find(product => product.id == productId);
 
-    console.log(product);
     showProductInfo(product);
     createOrderButton(product);
   }

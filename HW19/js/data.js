@@ -63,3 +63,31 @@ const categories = {
     ],
   }
 };
+
+const formData = [
+  { element: 'input', name: 'userName', type: 'text', placeholder: 'Enter your name' },
+  { element: 'select', name: 'city', type: '', placeholder: 'City', options: [
+    { value: 'zp', label: 'Zaporizhzhia' },
+    { value: 'kh', label: 'Kharkiv' }, 
+    { value: 'od', label: 'Odessa' },
+    { value: 'ky', label: 'Kyiv'},
+  ] },
+  { element: 'input', name: 'delivery', type: 'text', placeholder: 'Delivery' },
+  { element: 'input', name: 'payment', type: 'radio', placeholder: 'After pay', value: 'non-card' },
+  { element: 'input', name: 'payment', type: 'radio', placeholder: 'Credit / Debit card', value: 'card' },
+  { element: 'input', name: 'quantity', type: 'number', placeholder: 'Production quantity' },
+  { element: 'textarea', name: 'comment', type: 'text', placeholder: 'Comment' },
+  { element: 'input', name: 'delivery-btn', type: 'button', placeholder: 'Submit'},
+];
+
+const paymentMethods = {
+  card: 'Credit / Debit card',
+  'non-card': 'After pay',
+}
+
+const cities = {
+  zp: 'Zaporizhzhia',
+  kh: 'Kharkiv',
+  od: 'Odessa',
+  ky: 'ToKyivronto'
+}
