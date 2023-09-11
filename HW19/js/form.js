@@ -1,16 +1,34 @@
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 function getCities(items) {
   const cityKey = items.value;
   return cities[cityKey];
 }
 
-function saveData(formElements) {
+function getCurrentDateFormatted() {
+  const date = new Date();
+
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');  // getMonth() возвращает месяц от 0 до 11
+  const year = date.getFullYear();
+
+  return `${day}-${month}-${year}`;
+}
+
+function saveData(formElements, product) {
   return {
+    product: product.name,
+    price: product.price,
+    date: getCurrentDateFormatted(),
     name: formElements.userName.value,
     delivery: formElements.delivery.value,
     payment: paymentMethods[formElements.payment.value],
     city: getCities(formElements.city),
     comment: formElements.comment.value,
     quantity: formElements.quantity.value,
+
   }
 }
 
@@ -42,7 +60,7 @@ function checkEmpty(data) {
     for (const key in data) {
       if (Object.hasOwnProperty.call(data, key)) {
         let td = document.createElement('td');
-        const element = i === 1 ? data[key] : key;
+        const element = i === 1 ? data[key] : capitalizeFirstLetter(key);
         td.innerText = element;
         tr.appendChild(td);
       }
@@ -104,8 +122,10 @@ function createDeliveryForm(product) {
     let form = document.forms.orderForm;
     let formElements = form.elements;
   
-    const data = saveData(formElements);
-  
+    const data = saveData(formElements, product);
+    
+    prepareOrdersToDb(data);
+
     if (checkEmpty(data)) {  
       createTable(data);
       form.style.display = 'none';
