@@ -36,13 +36,7 @@ function deleteOrderFromDb(orderId) {
 function createOrderContainerElement(id) {
   let container = document.createElement('div')
   container.id = `container-${id}`;
-  container.style.display = 'flex';
-  container.style.flexDirection = 'column';
-  container.style.border = '1px solid gray';
-  container.style.borderRadius = '5px';
-  container.style.padding = '5px';
-  container.style.margin = '5px 0';
-  container.style.transition = '3s ease';
+  container.classList.add('order-container');
 
   return container;
 }
@@ -105,14 +99,14 @@ function showOrders() {
     let orderSummary = createElement('div', 'order-summary', false);
     orderSummary.id = `order-summary-${orderItem.id}`;
     orderSummary.style.display = 'flex';
-    orderSummary.style.flexDirection = 'column';
+    orderSummary.classList.add('flex-column');
     orderSummary.appendChild(createElement('span', `Date: ${orderItem.date}`));
     orderSummary.appendChild(createElement('span', `Price: $${orderItem.price}`));
     orderContainer.appendChild(orderSummary);
 
     let orderDetails = createElement('div', 'order-details', false);
     orderDetails.id = `order-details-${orderItem.id}`;
-    orderDetails.style.flexDirection = 'column';
+    orderDetails.classList.add('flex-column');
     orderDetails.style.display = 'none';
 
     for (const key in orderItem) {

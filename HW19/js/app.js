@@ -34,7 +34,8 @@ function showCategoriesButton() {
   let button = document.createElement('button');
   button.innerHTML = 'Show categories';
   button.id = 'show-categories-btn';
-  button.style.display = 'none';
+  button.classList.add('hide-element');
+  
   setItemStyle(button);
   leftElement.appendChild(button);
   
@@ -42,10 +43,11 @@ function showCategoriesButton() {
     hideOrShowCategories('block');
     hideOrders();
     
-    button.style.display = 'none';
+    button.classList.add('hide-element');
+    button.classList.remove('show-element');
 
     const myOrderBtn = document.getElementById('my-orders-btn');
-    myOrderBtn.style.display = 'block';
+    myOrderBtn.classList.add('show-element');
   });
 }
 
@@ -62,10 +64,12 @@ function myOrderButton() {
   document.getElementById('my-orders-btn').addEventListener('click', () => {
     hideOrShowCategories('none');
     showOrders();
-    myOrderBtn.style.display = 'none';
+
+    myOrderBtn.classList.remove('show-element');
+    myOrderBtn.classList.add('hide-element');
 
     const categoriesBtn = document.getElementById('show-categories-btn');
-    categoriesBtn.style.display = 'block';
+    categoriesBtn.classList.add('show-element');
 
     const elements = ['order', 'table-container', 'error-form', 'center', 'right'];
     for (const element of elements) {
@@ -75,11 +79,7 @@ function myOrderButton() {
 }
 
 function setItemStyle(element) {
-  element.style.cursor = 'pointer';
-  element.style.padding = '5px';
-  element.style.margin = '5px';
-  element.style.border = '1px solid gray';
-  element.style.borderRadius = '5px';
+  element.classList.add('item-style');
 }
 
 function showProducts(products, category) {

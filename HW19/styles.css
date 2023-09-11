@@ -48,3 +48,38 @@
 .delivery-form {
   margin-right: 10px;
 }
+
+.order-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px 0;
+  transition: 3s ease;
+}
+
+.item-style {
+  cursor: pointer;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.hide-element {
+  display: none;
+}
+
+.show-element {
+  display: block;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
