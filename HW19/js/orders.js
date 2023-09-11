@@ -1,5 +1,5 @@
 function getOrdersFromDB() {
-  return JSON.parse(localStorage.getItem('orders'));
+  return JSON.parse(localStorage.getItem('orders')) || [];
 }
 
 function setOrdersToDb(data) {
@@ -78,7 +78,8 @@ function hideOrders() {
 }
 
 function showOrders() {
-  let orders = getOrdersFromDB();
+  let orders = new Array;
+  orders = getOrdersFromDB();
 
   const leftElement = document.getElementById('left');
 
@@ -91,6 +92,11 @@ function showOrders() {
   myOrders.style.margin = '5px';
   myOrders.appendChild(createElement('p', 'My orders:'));
   leftElement.appendChild(myOrders);
+
+  if (!orders.length) {
+    myOrders.appendChild(createElement('p', 'Orders not found'));
+    return;
+  }
 
   for (const orderItem of orders) {    
     let orderContainer = createOrderContainerElement(orderItem.id);

@@ -123,14 +123,14 @@ function createDeliveryForm(product) {
     let formElements = form.elements;
   
     const data = saveData(formElements, product);
-    
-    prepareOrdersToDb(data);
 
-    if (checkEmpty(data)) {  
+    if (checkEmpty(data)) {
       createTable(data);
       form.style.display = 'none';
       let orderElement = document.getElementById('order');
       orderElement.innerHTML = (`Product ${product.name} was bought!`);
+
+      prepareOrdersToDb(data);
     }
   })
 }
