@@ -27,8 +27,11 @@ function showUserRow(user) {
     actionsElement,
     '',
     { type: 'button', value: 'Delete', 'data-type': 'delete' },
+    // {
+    //   click: handleDeleteUser
+    // }
     {
-      click: handleDeleteUser
+      click: () => showModal(user.id),
     }
   ); // deleteBtnElement
 
@@ -41,6 +44,10 @@ function showUserRow(user) {
       click: () => showUserInfo(user)
     }
   ); // viewBt
+}
+
+function showModal(userId) {
+  modal.show(userId);
 }
 
 function showUserInfo(user) {
@@ -261,13 +268,8 @@ function saveUser(newUser) {
   showUserRow(newUser);
 }
 
-function handleDeleteUser(event) {
-  // console.dir(event.target);
-  const isConfirmed = confirm('Do you really want to delete the user?');
-  if (isConfirmed) {
-    const userId = event.target.parentNode.getAttribute('data-id');
-    deleteUserById(+userId);
-  }
+function handleDeleteUser(userId) {
+  deleteUserById(+userId);
 }
 
 function deleteUserById(id) {
