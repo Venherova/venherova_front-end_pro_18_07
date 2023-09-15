@@ -51,6 +51,8 @@ function showModal(userId) {
 }
 
 function showUserInfo(user) {
+  checkUserForm();
+
   const parentSelector = '#userInfo';
   const parent = document.getElementById('userInfo');
   parent.innerHTML = '';
@@ -94,13 +96,25 @@ function showUserInfo(user) {
   );
 }
 
-function showUserForm(user = null, type = 'add') {
-  const parentSelector = '#form form';
-  
+function checkViewUserElements() {
+  const existingEl = document.getElementById('userInfo');
+  if (existingEl) {
+    cleanElement('#userInfo');
+  }
+}
+
+function checkUserForm() {
   const existingForm = document.getElementById('form');
   if (existingForm) {
     cleanElement('#form form');
   }
+}
+
+function showUserForm(user = null, type = 'add') {
+  checkViewUserElements();
+  checkUserForm();
+
+  const parentSelector = '#form form';
   
   createElement(
     'input',
@@ -227,7 +241,7 @@ function checkEmptyFields(data) {
 }
 
 function checkEmailValidator(email) {
-  const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  const emailPattern = /^([-a-zA-Z0-9!#$%&'*+\/=?^_`{|}~]|(?<!^)\.(?![@.]))+@((((?<!@)-(?!\.))|[a-zA-Z0-9])+\.)+[a-zA-Z]{2,6}$/;
 
   if (!emailPattern.test(email)) {
     return { isValid: false, errorMessage: 'Invalid email format' };
@@ -269,6 +283,8 @@ function saveUser(newUser) {
 }
 
 function handleDeleteUser(userId) {
+  checkViewUserElements();
+  checkUserForm();
   deleteUserById(+userId);
 }
 
