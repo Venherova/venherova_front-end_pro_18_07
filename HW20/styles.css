@@ -18,7 +18,14 @@
 #form form {
   display: flex;
   flex-direction: column;
-  width: 200px;
+  width: 250px;
+}
+
+#form form label{
+  font-size: 13px;
+}
+#form form input{
+  margin-bottom: 5px;
 }
 
 #error-form {
@@ -26,5 +33,12 @@
   font-size: 12px;
 }
 
+#userInfo {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
 
-
+#userInfo span {
+  margin-bottom: 5px;;
+}

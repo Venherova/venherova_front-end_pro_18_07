@@ -4,96 +4,8 @@ function showRows(users) {
   }
 }
 
-function showUserRow(user) {
-  const container = createElement('div', '#users', '', { 'data-user-id': user.id }); // container
-
-  createElement('div', container, user.id); // idElement
-  createElement('div', container, user.name + ' ' + user.lastName); // nameElement
-
-  const actionsElement = createElement('div', container, '', { className: 'actions', 'data-id': user.id });
-
-  createElement(
-    'input',
-    actionsElement,
-    '',
-    { type: 'button', value: 'Edit', 'data-type': 'edit' },
-    {
-      click: () => showUserForm(user, 'edit')
-    }
-  ); // editBtnElement
-
-  createElement(
-    'input',
-    actionsElement,
-    '',
-    { type: 'button', value: 'Delete', 'data-type': 'delete' },
-    // {
-    //   click: handleDeleteUser
-    // }
-    {
-      click: () => showModal(user.id),
-    }
-  ); // deleteBtnElement
-
-  createElement(
-    'input',
-    actionsElement,
-    '',
-    { type: 'button', value: 'View', 'data-type': 'view' },
-    {
-      click: () => showUserInfo(user)
-    }
-  ); // viewBt
-}
-
 function showModal(userId) {
   modal.show(userId);
-}
-
-function showUserInfo(user) {
-  checkUserForm();
-
-  const parentSelector = '#userInfo';
-  const parent = document.getElementById('userInfo');
-  parent.innerHTML = '';
-
-
-  createElement(
-    'span',
-    parentSelector,
-    `login: ${ user.login }`,
-  ); // login
-  
-  createElement(
-    'p',
-    parentSelector,
-    `name: ${ user.name }`,
-  ); // name
-  
-  createElement(
-    'p',
-    parentSelector,
-    `last name: ${ user.lastName }`,
-  ); // lastName
-
-  createElement(
-    'p',
-    parentSelector,
-    `email: ${ user.email }`,
-  ); // email
-  
-  createElement(
-    'input',
-    parentSelector,
-    '',
-    {
-      type: 'button',
-      value: 'Close',
-    },
-    {
-      click: () => cleanElement('#userInfo'),
-    }
-  );
 }
 
 function checkViewUserElements() {
@@ -110,106 +22,32 @@ function checkUserForm() {
   }
 }
 
-function showUserForm(user = null, type = 'add') {
-  checkViewUserElements();
-  checkUserForm();
-
-  const parentSelector = '#form form';
-  
-  createElement(
-    'input',
-    parentSelector,
-    '',
-    {
-      name: 'login',
-      type: 'text',
-      placeholder: 'Enter login',
-      value: user ? user.login : '',
-    }
-  ); // login input
-
-  createElement(
-    'input',
-    parentSelector,
-    '',
-    {
-      name: 'name',
-      type: 'text',
-      placeholder: 'Enter name',
-      value: user ? user.name : '',
-    }
-  ); // name input
-
-  createElement(
-    'input',
-    parentSelector,
-    '',
-    {
-      name: 'lastName',
-      type: 'text',
-      placeholder: 'Enter last name',
-      value: user ? user.lastName : '',
-    }
-  ); // lastName input
-
-  createElement(
-    'input',
-    parentSelector,
-    '', 
-    {
-      name: 'email',
-      type: 'text',
-      placeholder: 'Enter email',
-      value: user ? user.email : '',
-    }
-  ); // email input
-
-  createElement(
-    'input',
-    parentSelector,
-    '',
-    {
-      type: 'button',
-      value: 'Save',
-    },
-    {
-      click: () => {
-        switch (type) {
-          case 'edit':
-            handleSaveUser(user);
-            break;
-          case 'add':
-          default:
-            handleSaveUser(user);
-        }
-      }
-    }
-  );
-
-  createElement(
-    'p',
-    parentSelector,
-    '',
-    {
-      id: 'error-form',
-    }
-  );
+function showPassword() {
+  const passwordInput = document.querySelector(`input[name="password"]`);
+  passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
 }
 
 function handleSaveUser(userEdit = null) {
   const formElements = document.forms[0].elements;
 
   const login = formElements.login.value.trim();
+  const password = formElements.password.value.trim();
   const name = formElements.name.value.trim();
   const lastName = formElements.lastName.value.trim();
+  const age = formElements.age.value.trim();
   const email = formElements.email.value.trim();
-
+  const phoneNumber = formElements.phoneNumber.value.trim();
+  const card = formElements.card.value.trim();
 
   const user = {
     login,
+    password,
     name,
     lastName,
+    age,
     email,
+    phoneNumber,
+    card,
     id: userEdit ? userEdit.id : generateId(), 
   };
 
@@ -228,28 +66,6 @@ function generateId() {
   return Math.floor(Math.random() * 1000);
 }
 
-function checkEmptyFields(data) {
-  for (const key in data) {
-    if (Object.hasOwnProperty.call(data, key)) {
-      if ((typeof data[key] === 'string' && !data[key]) || data[key] === undefined) {
-        return { isValid: false, errorMessage: `Empty ${key} fields` };
-      }
-    }
-  }
-
-  return { isValid: true, errorMessage: '' };;
-}
-
-function checkEmailValidator(email) {
-  const emailPattern = /^([-a-zA-Z0-9!#$%&'*+\/=?^_`{|}~]|(?<!^)\.(?![@.]))+@((((?<!@)-(?!\.))|[a-zA-Z0-9])+\.)+[a-zA-Z]{2,6}$/;
-
-  if (!emailPattern.test(email)) {
-    return { isValid: false, errorMessage: 'Invalid email format' };
-  }
-
-  return { isValid: true, errorMessage: '' };
-}
-
 function validateUser(user) {
   let validationResult;
 
@@ -258,14 +74,13 @@ function validateUser(user) {
     return validationResult;
   }
 
-  validationResult = checkEmailValidator(user.email);
+  validationResult = validateRegex(user);
   if (!validationResult.isValid) {
     return validationResult;
   }
 
   return { isValid: true, errorMessage: '' };
 }
-
 
 function editUser(user) {
   const index = users.findIndex(userEl => userEl.id === user.id);
