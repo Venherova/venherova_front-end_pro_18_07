@@ -1,0 +1,9 @@
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.btn {
+  width: fit-content;
+}

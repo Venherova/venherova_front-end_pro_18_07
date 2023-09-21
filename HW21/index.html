@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="myBirthdate"></div>
+  <p id="birthdateDisplay"></p>
+
+  <form id="userBirthdate"></form>
+  <p id="userBirthdateDisplay"></p>
+
+  <hr>
+
+  <!-- Modal -->
+  <button type="button" id="openModalBtn" class="btn btn-secondary" data-bs-toggle="tooltip" title="Press me and open modal">
+    Open modal
+  </button>
+
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h2 class="fs-5" data-bs-toggle="tooltip" title="This is a modal body">This is a modal body</h2>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close me</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <button type="button" id="showAlertBtn" class="btn btn-info">
+    Show alert
+  </button>
+  <div id="liveAlertPlaceholder"></div>
+
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="node_modules/moment/min/moment.min.js"></script>
+  <script src="js/domHelpers.js"></script>
+  <script src="js/myBirthdate.js"></script>
+  <script src="js/userBirthdate.js"></script>
+  <script src="js/boot.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
