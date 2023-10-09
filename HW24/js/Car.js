@@ -10,7 +10,7 @@ function Car(brand, model, engineSize, engineType) {
     document.getElementById('carInfo').innerHTML = `Brand: ${this.brand}, Model: ${this.model}, Engine size: ${this.engineSize}, Engine type: ${this.engineType}, Owner: ${ownerInfo}`;
   } 
 
-  this.setOwner = (person) => {
+  Car.prototype.setOwner = (person) => {
     if(person instanceof Person) {
       this.owner = person;
     } else {
