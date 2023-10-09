@@ -5,7 +5,7 @@ function Car(brand, model, engineSize, engineType) {
   this.engineType = engineType;
   this.owner = null;
 
-  this.getInfo = () => {
+  Car.prototype.getInfo = () => {
     const ownerInfo = this.owner ? `${this.owner.name}, Age: ${this.owner.age}` : 'No owner';
     document.getElementById('carInfo').innerHTML = `Brand: ${this.brand}, Model: ${this.model}, Engine size: ${this.engineSize}, Engine type: ${this.engineType}, Owner: ${ownerInfo}`;
   } 
