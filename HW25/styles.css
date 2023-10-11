@@ -1,0 +1,39 @@
+h2 {
+  text-align: center;
+  font-size: 46px;
+  color: blueviolet;
+}
+
+body {
+  padding: 20px;
+}
+
+.house-form,
+.batchApartmentForm,
+.peopleForm {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.house-form input,
+.batchApartmentForm input,
+.peopleForm input {
+  margin-bottom: 20px;
+}
+
+h5 {
+  text-align: center;
+  font-size: 32px;
+  color: grey;
+}
+
+h4 {
+  text-align: center;
+  font-size: 40px;
+  color: goldenrod;
+}
+
+#output {
+  font-size: 25px;
+}
