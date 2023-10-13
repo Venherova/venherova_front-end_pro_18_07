@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link href="styles.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container mt-5">
+    <form id="hamburgerForm" class="bg-light p-4 rounded">
+      <div class="hamburger-size">
+        <span>Виберіть розмір гамбургера:</span>
+          <select name="size">
+              <option value="small">Маленький</option>
+              <option value="large">Великий</option>
+          </select>
+      </div>
+  
+      <div class="hamburger-stuffing">
+          <span>Виберіть начинку:</span>
+          <select name="stuffing" class="form-control">
+              <option value="cheese">Сир</option>
+              <option value="salad">Салат</option>
+              <option value="potato">Картопля</option>
+          </select>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" name="mayo" id="mayo">
+          <label for="mayo">Майонез</label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" name="sauce" id="sauce">
+          <label for="sauce">Приправа</label>
+        </div>
+        
+        <button type="button" onclick="createHamburger()" class="btn btn-primary mt-3">Створити гамбургер</button>
+    </form>
+    <div id="result" class="mt-4"></div>
+  </div>
+
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/Hamburger.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
