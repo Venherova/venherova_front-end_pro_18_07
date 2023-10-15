@@ -1,3 +1,21 @@
+# Home work 26
+- hamburger
+
+# Home work 25
+- house and appartments
+
+# Home work 24
+- person and car prototypes
+
+# Home work 23
+- star wars
+
+# Home work 22
+- slider 
+
+# Home work 21 
+- birth date
+
 # Home work 20 CRUD
 - CRUD-application for users (Create, Read, Update, Delete)
 

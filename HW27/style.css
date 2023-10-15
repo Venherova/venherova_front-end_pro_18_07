@@ -1,0 +1,35 @@
+.container {
+  width: 300px;
+  margin: auto;
+  text-align: center;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.chat-wrapper {
+  width: 300px;
+  margin-bottom: 10px;
+}
+
+.user,
+.bot {
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.user {
+  background-color: wheat;
+  margin: auto 0 5px auto;
+  width: fit-content;
+  border-radius: 6px 6px 0 6px;
+  text-align: right;
+}
+
+.bot {
+  background-color: aquamarine;
+  width: fit-content;
+  border-radius: 6px 6px 6px 0;
+  text-align: left;
+}
