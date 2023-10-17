@@ -2,6 +2,10 @@ const amountOfTime = Math.floor(Math.random() * 10000) + 1000;
 const inactivityTime = 40000;
 let inactivityTimer;
 
+document.forms[0].elements.message.addEventListener('input', () => {
+  resetInactivityTimer();
+});
+
 document.getElementById('send').addEventListener('click', () => {
   sendMessage();
   resetInactivityTimer();
@@ -21,11 +25,23 @@ function sendMessage() {
   addMessage(myMessage, 'user');
 
   if (myMessage.toLowerCase() === "час для розмови вичерпано") {
-    setTimeout(() => addMessage("Гарного дня! До побачення!", 'bot'), amountOfTime);
+    setTimeout(() => {
+      addMessage("Гарного дня! До побачення!", 'bot');
+      hideForm();
+      clearActivityTimer();
+    }, amountOfTime);
     return;
   }
   
   startBotThinking();
+}
+
+function hideForm() {
+  document.forms[0].style = 'display: none';
+}
+
+function clearActivityTimer() {
+  clearTimeout(inactivityTimer);
 }
 
 function addMessage(message, sender) {  
@@ -44,11 +60,12 @@ function startBotThinking() {
 
 function resetInactivityTimer() {
   if (inactivityTimer) {
-    clearTimeout(inactivityTimer);
+    clearActivityTimer();
   }
 
   inactivityTimer = setTimeout(() => {
     addMessage("Браузер завершив розмову через неактивність", 'bot');
+    hideForm();
   }, inactivityTime);
 }
 
