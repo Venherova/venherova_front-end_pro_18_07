@@ -12,7 +12,7 @@ document.getElementById('send').addEventListener('click', () => {
 });
 
 function greetings() {
-  addMessage("Вітаю! Поспілкуємось?", 'bot')
+  addMessage('Вітаю! Поспілкуємось?', 'bot');
 }
 
 function sendMessage() {
@@ -24,9 +24,9 @@ function sendMessage() {
 
   addMessage(myMessage, 'user');
 
-  if (myMessage.toLowerCase() === "час для розмови вичерпано") {
+  if (myMessage.toLowerCase() === 'час для розмови вичерпано') {
     setTimeout(() => {
-      addMessage("Гарного дня! До побачення!", 'bot');
+      addMessage('Гарного дня! До побачення!', 'bot');
       hideForm();
       clearActivityTimer();
     }, amountOfTime);
@@ -64,14 +64,14 @@ function resetInactivityTimer() {
   }
 
   inactivityTimer = setTimeout(() => {
-    addMessage("Браузер завершив розмову через неактивність", 'bot');
+    addMessage('Браузер завершив розмову через неактивність', 'bot');
     hideForm();
   }, inactivityTime);
 }
 
 function botMessaging() {
   const massageIndex = Math.floor(Math.random() * botMessages.length);
-  const botMessage = botMessages[massageIndex]
+  const botMessage = botMessages[massageIndex];
   addMessage(botMessage, 'bot');
 }
 
