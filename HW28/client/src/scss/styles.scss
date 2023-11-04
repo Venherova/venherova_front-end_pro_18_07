@@ -1,0 +1,50 @@
+body {
+  margin: 30px;
+}
+
+.menu-cafe {
+  text-align: center;
+}
+
+.content-menu {
+  display: flex;
+  margin-bottom: 10px;
+  flex-direction: column;
+}
+
+.checkout {
+  display: none;
+  width: 100%;
+}
+
+li {
+  cursor: pointer;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.product {
+  margin-right: 10px;
+  margin-bottom: 10px;
+
+  &__price {
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
+  &__btn {
+    width: 100%;
+    flex: 1;
+  }
+}
+
+.cart {
+  display: none;
+}
+
+.new-order {
+  display: flex;
+  justify-content: center;
+}

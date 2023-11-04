@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+  
+  <div id="wrapper" class="wrapper-menu">
+    <ul id="menu" class="menu-cafe"></ul>
+
+    <div class="container">
+      <div class="row mb-3">
+        <div class="col-6">
+          <div id="content" class="content-menu"></div>
+    
+          <input type="button" value="Order" id="checkout" class="checkout btn btn-primary"/>
+        </div>
+  
+        <div id="cart" class="cart shadow p-3 mb-5 bg-body-tertiary rounded col-6"></div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div id="new-button" class="new-order">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="infoModalLabel"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="infoModalBody">
+          <!-- Info will be inserted here -->
+          <form id="hamburgerForm" class="bg-light p-4 rounded">
+            <div class="mb-3 hamburger-size">
+              <span>Choose the size of the hamburger:</span>
+                <select name="size" class="form-select">
+                    <option value="small">Small</option>
+                    <option value="large">Big</option>
+                </select>
+            </div>
+        
+            <div class="mb-3 hamburger-stuffing">
+                <span>Choose the filling:</span>
+                <select name="stuffing" class="form-select">
+                    <option value="cheese">Cheese</option>
+                    <option value="salad">Salad</option>
+                    <option value="potato">Potato</option>
+                </select>
+              </div>
+              <div class="form-check mb-3">
+                <input type="checkbox" name="mayo" id="mayo">
+                <label for="mayo">Mayo</label>
+              </div>
+              <div class="form-check mb-3">
+                <input type="checkbox" name="sauce" id="sauce">
+                <label for="sauce">Spice</label>
+              </div>
+              <button type="button" id="choose-btn">Choose</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
