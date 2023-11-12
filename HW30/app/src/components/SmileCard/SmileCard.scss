@@ -1,0 +1,31 @@
+.SmileCard {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+
+  .smile {
+    font-size: 2rem;
+    margin-right: 15px;
+  }
+
+  .content {
+    h3 {
+      margin: 0;
+      color: #333;
+    }
+  }
+
+  &.non-clickable {
+    cursor: default;
+    pointer-events: none;
+  }
+}
