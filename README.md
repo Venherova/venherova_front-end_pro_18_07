@@ -1,3 +1,12 @@
+# Home work 32
+- updated phonebook task with Formik and Yup
+
+# Home work 31
+- phone book with contacts and adding them
+
+# Home work 30
+- voting for emojis
+
 # Home work 29
 - first react application
 
