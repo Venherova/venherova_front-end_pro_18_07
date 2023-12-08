@@ -1,3 +1,12 @@
+# Home work 36
+- add TypeScript to the phonebook (as many as possible - in components, in the store)
+
+# Home work 35
+- add Redux-toolkit (slides, updated reducers) to your phonebook
+
+# Home work 34
+- rewrite the old phonebook program to use redux.
+
 # Home work 33 
 - updated phonebook with routing and modal
 
